@@ -3,51 +3,101 @@
 }
 
 .App {
-  background: #C6FFDD;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #c94b4b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
   height: 100vh;
   text-align: center;
 }
 .header{
-  font-size:48px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background: rgba(25,255,255,0.25);
+  font-size: 40px;
+  font: arial;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.45);
   color: white;
-  padding: 20px 40px;
+  padding: 10px 40px;
   text-align: left;
   border-bottom: 2px solid white;
   display: flex;
   align-items: center;
 }
 
-.UwHuskies{
+.Logo {
   height: 50px;
-  margin-right: 24px;
+  margin-right: 20px;
 }
 
 .text-input{
   position:absolute;
   bottom:0;
-  height:40px;
+  height:60px;
   width:100%;
-  border-top:1px solid white;
+  border-top:2px solid white;
+  padding: 10px;
+  background: rgba(254, 255, 255, 0.45)
 }
 
 .text-input input {
   width: calc(100% - 70px);
   height: 80%;
   font-size: 24px;
+  border-radius: 15px;
+  background: black;
+  border: 1px solid white;
+  color: white;
 }
 
 .text-input button {
-  width: 40px;
-  height: 100%;
+  width: 28px;
+  height: 39%;
   border-radius: 20px;
   cursor: pointer;
+  border: 1px solid white;
+  position: absolute;
+  right: 49px;
+  top: 13px;
+  font-family: Helvetica;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 3px;
+  bottom: 0px;
 }
 
 .text-input button:hover {
-  background: black;
+  background: rgb(128, 0, 70);
   color: white;
+}
+
+.ChatLeft{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  border-radius: 25px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  position: relative;
+  float: left;
+  top: 440px;
+  text-align: right;
+  font-size: 20px;
+}
+
+.ChatRight{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  border-radius: 25px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  position: relative;
+  float: right;
+  top: 470px;
+  text-align: right;
+  font-size: 20px;
 }

@@ -1,16 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import UWHuskies from './UWHuskies.png'
+import Logo from './Logo.png'
 import TextInput from './TextInput'
 
 function App() {
   return (
     <div className="App">
       <header className="header">
-        <img src={UWHuskies} className="UwHuskies" alt=""/>
-        MyApp
+        <img src={Logo} className="Logo" alt=""/>
+        Chatter
       </header>
+      <div className="ChatLeft">
+          Hey! How are you?
+      </div>
+      <div className="ChatRight">
+        Hi! Nice to hear from you! I'm great! hbu?
+      </div>
       <TextInput />
     </div> 
   );
