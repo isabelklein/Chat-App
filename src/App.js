@@ -4,25 +4,30 @@ import Logo from './Logo.png'
 import TextInput from './TextInput'
 
 class App extends React.Component {
-  
-  state={
-    messages:[]
-  }
 
-  sendMessage = (m) => {
+  gotMessage = (m) => {
     var messages = [...this.state.messages, m]
-    this.setState({messages})
+    this.setState({ messages })
   }
 
   render() {
-    console.log(this.state.messages)
+    var { messages } = this.state
     return (
       <div className="App">
         <header className="header">
           <img src={Logo} className="Logo" alt="" />
           Chatter
       </header>
-        <TextInput sendMessage={this.sendMessage} />
+        <main className="messages">
+          {messages.map((m, i) => {
+            return (<div key={i} className="bubble-wrap">
+              <div className="bubble">
+                <span>{m}</span>
+              </div>
+            </div>)
+          })}
+        </main>
+        <TextInput sendMessage={this.gotMessage} />
       </div>
     );
   }

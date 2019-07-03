@@ -2,6 +2,7 @@ import React from 'react'
 import { FiSend } from "react-icons/fi";
 
 class TextInput extends React.Component { /*creates text input box and send button*/
+    
     state = {
         text: "",
     }
@@ -11,15 +12,13 @@ class TextInput extends React.Component { /*creates text input box and send butt
         this.setState({ text: "" })
     }
 
-    keypress = (e) => {
+    keyPress = (e) => {
         if(e.key==='Enter'){
             this.send()
         }
     }
 
     render() {
-        var {messages} = this.state
-        console.log(messages)
         return (<div className="text-input">
             <input value={this.state.text}
                 placeholder="Write your message here..."
