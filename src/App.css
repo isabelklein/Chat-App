@@ -9,6 +9,7 @@
   height: 100vh;
   text-align: center;
 }
+
 .header{ /*style for header*/
   font-size: 40px;
   font: arial;
@@ -20,10 +21,11 @@
   border-bottom: 2px solid white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .Logo { /*style for logo*/
-  height: 50px;
+  height: 80px;
   margin-right: 20px;
 }
 
@@ -69,36 +71,6 @@
   color: white;
 }
 
-.ChatLeft{ /*style for left chat bubble*/
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 10px;
-  border-radius: 25px;
-  color: white;
-  background-color: black;
-  padding: 10px;
-  position: relative;
-  float: left;
-  top: 465px;
-  text-align: right;
-  font-size: 20px;
-}
-
-.ChatRight{ /*style for right chat bubble*/
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 10px;
-  border-radius: 25px;
-  color: white;
-  background-color: black;
-  padding: 10px;
-  position: relative;
-  float: right;
-  top: 505px;
-  text-align: right;
-  font-size: 20px;
-}
-
 .text-input button[disabled] {
   color: white;
   background: rgb(109, 58, 100);
@@ -120,7 +92,8 @@
   font-size: 14px;
   position:relative;
   border: 1px solid white;
-  margin-left:5px;
+  margin-left: 5px;
+  top: 8px;
 }
 .bubble:before{
   content:"";
@@ -152,7 +125,7 @@
 .bubble-name{
   position: absolute;
   color: white;
-  top: -5px;
+  top: 3px;
   font-size:10px;
   left: 30px;
 }
