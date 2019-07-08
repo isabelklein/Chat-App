@@ -29,6 +29,11 @@
   margin-right: 20px;
 }
 
+.logoHeader {
+  align-items: center;
+  display: flex;
+}
+
 .text-input{ /*style for input bar*/
   position:absolute;
   bottom:0;
@@ -166,5 +171,7 @@
 
 .messages{
   overflow:auto;
-  height:calc(100% - 130px);
+  height:calc(100% - 160px);
+  display: flex;
+  flex-direction: column-reverse;
 }
