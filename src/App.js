@@ -15,20 +15,20 @@ class App extends React.Component {
     editName: false,
   }
 
-  componentWillMount(){
+  componentWillMount() {
     var name = localStorage.getItem('name')
-    if(name){
-      this.setState({name})
+    if (name) {
+      this.setState({ name })
     }
 
     /* <=========================> */
     firebase.initializeApp({
-      apiKey: "AIzaSyBAJVwrP5J4AhVKd5ijYtcTF9XMV6tIcY4",
-      authDomain: "msgr-2.firebaseapp.com",
-      projectId: "msgr-2",
-      storageBucket: "msgr-2.appspot.com",
+      apiKey: "AIzaSyBJZer5kAE4Rg1n0WlZN0vZdZp4HzXu_hM",
+      authDomain: "chat-app-76f1c.firebaseapp.com",
+      projectId: "chat-app-76f1c",
+      storageBucket: "chat-app-76f1c.appspot.com",
     });
-    
+
     this.db = firebase.firestore();
 
     this.db.collection("messages").onSnapshot((snapshot) => {
@@ -43,8 +43,8 @@ class App extends React.Component {
   }
   receive = (m) => {
     const messages = [m, ...this.state.messages]
-    messages.sort((a,b)=>b.ts-a.ts)
-    this.setState({messages})
+    messages.sort((a, b) => b.ts - a.ts)
+    this.setState({ messages })
   }
 
   send = (m) => {
@@ -54,7 +54,7 @@ class App extends React.Component {
       ts: Date.now()
     })
   }
- 
+
   /* <===========================> */
 
   gotMessage = (text) => {
@@ -63,14 +63,14 @@ class App extends React.Component {
       from: this.state.name
     }
     var newMessagesArray = [...this.state.messages, message]
-    this.setState({messages: newMessagesArray})
+    this.setState({ messages: newMessagesArray })
   }
 
   setEditName = (editName) => {
-    if(!editName){
-      localStorage.setItem('name',this.state.name)
+    if (!editName) {
+      localStorage.setItem('name', this.state.name)
     }
-    this.setState({editName})
+    this.setState({ editName })
   }
 
   render() {
@@ -90,20 +90,25 @@ class App extends React.Component {
         </header>
         <main className="messages">
           {messages.map((m, i) => {
-            return (<div key={i} className="bubble-wrap"
-              from={m.from===name ? "me" : "you"}
-              >
-              {m.from!==name && <div className="bubble-name">{m.from} </div>}
-              <div className="bubble">
-                <span>{m.text}</span>
-              </div>
-            </div>)
+            return <Message key ={i} m={m} name ={name}/>
           })}
         </main>
-        <TextInput sendMessage={text=> this.send({text})} />
+        <TextInput sendMessage={text => this.send({ text })} />
       </div>
     );
   }
 }
 
 export default App;
+
+function Message(props) {
+  var {m, name} = props
+  return (<div className="bubble-wrap"
+    from={m.from === name ? "me" : "you"}
+  >
+    {m.from !== name && <div className="bubble-name">{m.from} </div>}
+    <div className="bubble">
+      <span>{m.text}</span>
+    </div>
+  </div>)
+}
