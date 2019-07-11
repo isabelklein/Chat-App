@@ -6,6 +6,7 @@ import NamePicker from './NamePicker'
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage"
+import Camera from 'react-snap-pic'
 
 class App extends React.Component {
 
@@ -13,6 +14,7 @@ class App extends React.Component {
     messages: [],
     name: '',
     editName: false,
+    showCamera: false
   }
 
   componentWillMount() {
@@ -90,19 +92,25 @@ class App extends React.Component {
         </header>
         <main className="messages">
           {messages.map((m, i) => {
-            return <Message key ={i} m={m} name ={name}/>
+            return <Message key={i} m={m} name={name} />
           })}
         </main>
-        <TextInput sendMessage={text => this.send({ text })} />
+        <TextInput sendMessage={text => this.send({ text })}
+          showCamera={() => this.setState({ showCamera: true })} />
+        {this.state.showCamera && <Camera takePicture={this.takePicture} />}
       </div>
     );
+  }
+  takePicture = (img) => {
+    console.log(img)
+    this.setState({ showCamera: false })
   }
 }
 
 export default App;
 
 function Message(props) {
-  var {m, name} = props
+  var { m, name } = props
   return (<div className="bubble-wrap"
     from={m.from === name ? "me" : "you"}
   >

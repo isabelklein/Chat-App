@@ -4434,6 +4434,11 @@ fsevents@^1.2.7:
     nan "^2.12.1"
     node-pre-gyp "^0.12.0"
 
+fsevents@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.0.7.tgz#382c9b443c6cbac4c57187cdda23aa3bf1ccfc2a"
+  integrity sha512-a7YT0SV3RB+DjYcppwVDLtn13UQnmg0SWZS7ezZD0UjnLwXmy8Zm21GMVGLaFGimIqcvyMQaOJBrop8MyOp1kQ==
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -8371,6 +8376,11 @@ react-scripts@3.0.1:
     workbox-webpack-plugin "4.2.0"
   optionalDependencies:
     fsevents "2.0.6"
+
+react-snap-pic@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-snap-pic/-/react-snap-pic-0.0.3.tgz#0925e817e24909209b6bc0396a6af0413980dcb9"
+  integrity sha512-5eeWT9G3kXUQQtyY3BsRNKckB0xDB/VsSdpLNCVDBCoGYo676PV5ihs+uw46vc8iVawahUTNX1eUjnKo5HFA6Q==
 
 react@^16.8.6:
   version "16.8.6"

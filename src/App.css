@@ -57,7 +57,7 @@
 }
 
 .text-input button { /*style for send button*/
-  width: 28px;
+  width:28px;
   height: 39%;
   border-radius: 20px;
   cursor: pointer;
