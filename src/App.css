@@ -11,7 +11,7 @@
 }
 
 .header{ /*style for header*/
-  font-size: 40px;
+  font-size: 3rem;
   font: arial;
   font-weight: bold;
   background: rgba(255, 255, 255, 0.45);
@@ -26,7 +26,7 @@
 
 .Logo { /*style for logo*/
   height: 80px;
-  margin-right: 20px;
+  margin-right: 1.5rem;
 }
 
 .logoHeader {
@@ -35,7 +35,7 @@
 }
 
 .text-input{ /*style for input bar*/
-  position:absolute;
+  position:fixed;
   bottom:0;
   height:60px;
   width:100%;
@@ -88,7 +88,7 @@
   display:flex;
   position: relative;
   bottom: 15px;
-  height: 50px;
+  flex-shrink: 0px;
 }
 .bubble-wrap[from="me"] {
   flex-direction:row-reverse;
@@ -129,6 +129,12 @@
   position:relative;
   z-index:101;
 }
+
+.bubble img {
+  position: relative;
+  z-index: 101;
+}
+
 .bubble-name{
   position: absolute;
   color: white;
@@ -168,7 +174,7 @@
   display: flex;
   align-items: center;
   margin-right:12px;
-  font-size:16px;
+  font-size:1rem;
 }
 
 .messages{
