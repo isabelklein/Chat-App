@@ -38,12 +38,25 @@ class App extends React.Component {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
           //console.log(change.doc.data())
-          this.receive(change.doc.data())
+          this.receive({
+            ...change.doc.data(),
+            id: change.doc.id
+          })
+        }
+        if (change.type === 'removed') {
+          this.remove(change.doc.id)
         }
       })
     })
     /* <=========================> */
+  } // end componentWillMount
+
+  remove = (id) => {
+    var msgs = [...this.state.messages]
+    var messages = msgs.filter(m=> m.id!==id)
+    this.setState({messages})
   }
+
   receive = (m) => {
     const messages = [m, ...this.state.messages]
     messages.sort((a, b) => b.ts - a.ts)
@@ -77,12 +90,12 @@ class App extends React.Component {
   }
 
   takePicture = async (img) => {
-    this.setState({showCamera:false})
+    this.setState({ showCamera: false })
     const imgID = Math.random().toString(36).substring(7);
     var storageRef = firebase.storage().ref();
-    var ref = storageRef.child(imgID+'.jpg');
+    var ref = storageRef.child(imgID + '.jpg');
     await ref.putString(img, 'data_url')
-    this.send({img: imgID})
+    this.send({ img: imgID })
   }
 
   render() {
@@ -92,7 +105,7 @@ class App extends React.Component {
         <header className="header">
           <div className="logoHeader">
             <img src={Logo} className="Logo" alt="" />
-            {editName?'':'Chatter'}          
+            {editName ? '' : 'Chatter'}
           </div>
           <NamePicker
             name={this.state.name}
@@ -103,7 +116,12 @@ class App extends React.Component {
         </header>
         <main className="messages">
           {messages.map((m, i) => {
-            return <Message key={i} m={m} name={name} />
+            return <Message key={i} m={m} name={name}
+              onClick={() => {
+                if (name===m.from) {
+                this.db.collection('messages').doc(m.id).delete()
+              }
+           }} />
           })}
         </main>
         <TextInput sendMessage={text => this.send({ text })}
@@ -119,14 +137,15 @@ export default App;
 const bucket = 'https://firebasestorage.googleapis.com/v0/b/chat-app-76f1c.appspot.com/o/'
 const suffix = '.jpg?alt=media'
 function Message(props) {
-  var { m, name } = props
+  var { m, name, onClick } = props
   return (<div className="bubble-wrap"
     from={m.from === name ? "me" : "you"}
+    onClick={onClick}
   >
     {m.from !== name && <div className="bubble-name">{m.from} </div>}
     <div className="bubble">
       <span>{m.text}</span>
-      {m.img && <img alt="pic" src={bucket+m.img+suffix} />}
+      {m.img && <img alt="pic" src={bucket + m.img + suffix} />}
     </div>
   </div>)
 }
